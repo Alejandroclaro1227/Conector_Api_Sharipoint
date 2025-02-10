@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitor de Archivos SharePoint</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f2f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #0078d4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .button:hover {
+            background-color: #106ebe;
+        }
+        .results {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Monitor de Archivos SharePoint</h1>
+        
+        <div class="card">
+            <h2>Acciones Disponibles</h2>
+            <button class="button" onclick="getArchivos()">Ver Archivos</button>
+            <button class="button" onclick="getCambios()">Ver Cambios</button>
+            <button class="button" onclick="getHistorico()">Ver Histórico</button>
+        </div>
+
+        <div class="card">
+            <h2>Resultados</h2>
+            <div id="results" class="results">
+                Los resultados se mostrarán aquí...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://127.0.0.1:8000';
+
+        async function fetchAPI(endpoint) {
+            try {
+                const response = await fetch(`${API_URL}${endpoint}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                displayResults(data);
+            } catch (error) {
+                displayError(error);
+            }
+        }
+
+        function getArchivos() {
+            fetchAPI('/archivos');
+        }
+
+        function getCambios() {
+            fetchAPI('/cambios');
+        }
+
+        function getHistorico() {
+            fetchAPI('/historico');
+        }
+
+        function displayResults(data) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            resultsDiv.classList.remove('error');
+            resultsDiv.classList.add('success');
+        }
+
+        function displayError(error) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `Error: ${error.message}`;
+            resultsDiv.classList.remove('success');
+            resultsDiv.classList.add('error');
+        }
+    </script>
+</body>
+</html> 

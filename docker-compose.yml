@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8300:8300"
+    volumes:
+      - .:/app
+    environment:
+      - SHAREPOINT_SITE_URL=${SHAREPOINT_SITE_URL}
+      - SHAREPOINT_FOLDER_URL=${SHAREPOINT_FOLDER_URL}
+      - SHAREPOINT_USERNAME=${SHAREPOINT_USERNAME}
+      - SHAREPOINT_PASSWORD=${SHAREPOINT_PASSWORD} 
