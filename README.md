@@ -1,6 +1,63 @@
 # 🔄 Control de Versiones SharePoint - CUN  
 **Desarrollado con ❤️ para la CUN**  
 
+🔹 2️⃣ Crear un entorno virtual (Opcional pero recomendado)
+Si
+
+intento
+
+Copiar
+
+Editar
+python -m venv env
+Para activarlo:
+
+Ventanas (PowerShell)
+
+potencia shell
+
+Copiar
+
+Editar
+env\Scripts\activate
+Mac/Linux
+
+intento
+
+Copiar
+
+Editar
+source env/bin/activate
+🔹 3️⃣ Instalar dependencias
+Instala todas las li
+
+intento
+
+Copiar
+
+Editar
+pip install -r requirements.txt
+4️⃣ Ejecutar el servidor
+Para iniciar la API,
+
+intento
+
+Copiar
+
+Editar
+uvicorn api:app --reload
+La API estará disponible en [http://localhost:8000
+
+PAG
+
+Interfaz de usuario Swagger : [`hhttp://localhost:8000/docs
+ReDoc : [`htthttp://localhost:8000/redoc
+
+
+
+
+
+
 Sistema de monitoreo y control de versiones que sincroniza documentos desde SharePoint a Excel y expone la información mediante una API REST.  
 
 ## 📋 Descripción  
