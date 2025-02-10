@@ -2,11 +2,34 @@
 **Desarrollado con ❤️ para la CUN**  
 Sistema de monitoreo y control de versiones que sincroniza documentos desde SharePoint a Excel y expone la información mediante una API REST.  
 
-## 📥 Clonación del Repositorio
+## 📥 Clonación del Repositorio  
 
-Para clonar este proyecto, asegúrate de tener Git instalado en tu máquina. Luego, ejecuta el siguiente comando en tu terminal:
+Para clonar este proyecto, asegúrate de tener **Git** instalado en tu máquina. Luego, ejecuta el siguiente comando en tu terminal:  
 
-git clone <https://github.com/Alejandroclaro1227/Conector_Api_Sharipoint.git>
+```bash
+git clone https://github.com/Alejandroclaro1227/Conector_Api_Sharipoint.git
+
+Después, entra a la carpeta con:
+
+cd SegundoConector
+
+
+🚀 Ejecución del Proyecto
+Para ejecutar el proyecto, sigue estos pasos:
+
+🔹 1️⃣ Activa el entorno virtual (si estás usando uno)
+
+env\Scripts\activate  # En Windows
+source env/bin/activate  # En Mac/Linux
+
+🔹 2️⃣ Instala las dependencias
+Asegúrese de instalar los paquetes necesarios con:
+pip install -r requirements.txt
+
+🔹 3️⃣ Ejecuta el servidor con Uvicorn
+uvicorn api:app --host 127.0.0.1 --port 8000 --reload
+
+
 
 ## 📋 Descripción  
 
