@@ -2,6 +2,12 @@
 **Desarrollado con ❤️ para la CUN**  
 Sistema de monitoreo y control de versiones que sincroniza documentos desde SharePoint a Excel y expone la información mediante una API REST.  
 
+## 📥 Clonación del Repositorio
+
+Para clonar este proyecto, asegúrate de tener Git instalado en tu máquina. Luego, ejecuta el siguiente comando en tu terminal:
+
+git clone <https://github.com/Alejandroclaro1227/Conector_Api_Sharipoint.git>
+
 ## 📋 Descripción  
 
 El sistema consta de dos componentes principales:  
